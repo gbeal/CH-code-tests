@@ -1,2 +1,4 @@
-# code-tests
-Coding tests I took as part of job interviews
+# Coding Test
+
+Attempt at solving 3 pre-employment coding tests
+
