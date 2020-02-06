@@ -25,7 +25,7 @@ namespace MarsRover.Code
 
         public void AcceptCommand(string command)
         {
-            var commandChars = command.ToCharArray();
+            var commandChars = command.ToUpper().ToCharArray();
             foreach(var c in commandChars)
             {
                 if(c=='L')
