@@ -18,6 +18,11 @@ namespace MarsRover.Code
             return X == other.X && Y == other.Y && CurrentDirection == other.CurrentDirection;
         }
 
+        public override int GetHashCode()
+        {
+            return (X, Y, CurrentDirection).GetHashCode();
+        }
+
         public static bool operator== (Location location1, Location location2)
         {
             return location1.Equals(location2);
