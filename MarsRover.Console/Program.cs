@@ -105,11 +105,25 @@ namespace MarsRover.Console
                     Console.WriteLine($"'{startingPositionInput}' is not valid.  Try something like '2 3 E' (without quotes)");
                     Console.ResetColor();
                 }
+                else if (x > _grid.XSize)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"The starting X value {x} is greater than the Grid X of {_grid.XSize}");
+                    Console.ResetColor();
+                }
+                else if(y> _grid.YSize)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"The starting Y value {y} is greater than the Grid Y of {_grid.YSize}");
+                    Console.ResetColor();
+                }
                 else
                 {
                     _startingLocation = new Location { X = x, Y = y, CurrentDirection = GetOrdinalFromString(commands[2]) };
                     badLocation = false;
                 }
+
+                
             }
 
             return true;
