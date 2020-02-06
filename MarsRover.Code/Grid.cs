@@ -6,6 +6,8 @@ namespace MarsRover.Code
 {
     public class Grid
     {
+        public int Min_X => 0;
+        public int Min_Y => 0;
         public int XSize { get; }
         public int YSize { get; }
         private Grid()

@@ -4,20 +4,20 @@ using System.Text;
 
 namespace MarsRover.Code
 {
-    public class MarsRover : IRover
+    public class Rover : IRover
     {
         private Location _currentLocation;
         private Grid _currentGrid;
 
         public Location CurrentLocation { get => _currentLocation; }
 
-        public MarsRover(Grid grid, Location location)
+        public Rover(Grid grid, Location location)
         {
             _currentLocation = location;
             _currentGrid = grid;
         }
 
-        public MarsRover(Grid grid, int start_x, int start_y, OrdinalDirection start_direction)
+        public Rover(Grid grid, int start_x, int start_y, OrdinalDirection start_direction)
         {
             _currentGrid = grid;
             _currentLocation = new Location { CurrentDirection = start_direction, X = start_x, Y = start_y };
@@ -25,26 +25,44 @@ namespace MarsRover.Code
 
         public void AcceptCommand(string command)
         {
-            throw new NotImplementedException();
+            var commandChars = command.ToCharArray();
+            foreach(var c in commandChars)
+            {
+                if(c=='L')
+                {
+                    _currentLocation = Turn(RelativeDirection.Left);
+                }
+                else if (c=='R')
+                {
+                    _currentLocation = Turn(RelativeDirection.Right);
+                }
+                else if(c=='M')
+                {
+                    _currentLocation = Move();
+                }
+            }
         }
 
         public Location Move()
         {
+            Location newLocation = _currentLocation;
             switch (_currentLocation.CurrentDirection)
             {
                 case OrdinalDirection.North:
-                    _currentLocation = MoveNorth();
+                    newLocation = MoveNorth();
                     break;
                 case OrdinalDirection.South:
-                    _currentLocation = MoveSouth();
+                    newLocation = MoveSouth();
                     break;
                 case OrdinalDirection.East:
-                    _currentLocation = MoveEast();
+                    newLocation = MoveEast();
                     break;
                 case OrdinalDirection.West:
-                    _currentLocation = MoveWest();
+                    newLocation = MoveWest();
                     break;
             }
+
+            return newLocation;
         }
 
         public Location Turn(RelativeDirection direction)
@@ -56,7 +74,6 @@ namespace MarsRover.Code
                 Y = _currentLocation.Y
             };
 
-            _currentLocation = newLocation;
             return newLocation;
         }
 
@@ -105,7 +122,6 @@ namespace MarsRover.Code
             return _currentLocation.CurrentDirection;
         }
 
-        }
 
         private Location MoveNorth()
         {
@@ -113,7 +129,7 @@ namespace MarsRover.Code
             {
                 CurrentDirection = _currentLocation.CurrentDirection,
                 X = _currentLocation.X,
-                Y = Math.Max(_currentLocation.Y + 1, _currentGrid.YSize)
+                Y = (_currentLocation.Y + 1) < _currentGrid.YSize ? _currentLocation.Y + 1 : _currentGrid.YSize
             };
         }
 
@@ -123,7 +139,7 @@ namespace MarsRover.Code
             {
                 CurrentDirection = _currentLocation.CurrentDirection,
                 X = _currentLocation.X,
-                Y = Math.Max(_currentLocation.Y - 1, 0)
+                Y = (_currentLocation.Y - 1) > _currentGrid.Min_Y ? _currentLocation.Y - 1 : _currentGrid.Min_Y
             };
         }
 
@@ -132,7 +148,7 @@ namespace MarsRover.Code
             return new Location
             {
                 CurrentDirection = _currentLocation.CurrentDirection,
-                X = Math.Max(_currentLocation.X - 1, 0),
+                X = (_currentLocation.X - 1) > _currentGrid.Min_X ? _currentLocation.X - 1 : _currentGrid.Min_X,
                 Y = _currentLocation.Y
             };
         }
@@ -142,7 +158,7 @@ namespace MarsRover.Code
             return new Location
             {
                 CurrentDirection = _currentLocation.CurrentDirection,
-                X = Math.Max(_currentLocation.X + 1, _currentGrid.XSize),
+                X = (_currentLocation.X + 1) < _currentGrid.XSize ? _currentLocation.X + 1 : _currentGrid.XSize,
                 Y = _currentLocation.Y
             };
         }
