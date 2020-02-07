@@ -7,9 +7,10 @@ namespace SalesTax.Code
     {
         private List<OrderItem> _orderItems;
 
+        
         public Order()
         {
-            _orderItems=new List<OrderItem>();
+            _orderItems = new List<OrderItem>();
         }
 
         public string PrintReceipt()

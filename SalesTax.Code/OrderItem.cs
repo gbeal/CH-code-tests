@@ -3,8 +3,8 @@ namespace SalesTax.Code
     using System;
     public class OrderItem
     {
-        IItem Item {get;set;}
-        double Quantity {get;set;}
+        public IItem Item {get;set;}
+        public double Quantity {get;set;}
 
         public string PrintLineItem()
         {

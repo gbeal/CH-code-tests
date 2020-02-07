@@ -4,6 +4,7 @@ namespace SalesTax.Code
     {
         Book,
         Food,
-        Medicine
+        MedicalSupply,
+        Other
     }
 }
