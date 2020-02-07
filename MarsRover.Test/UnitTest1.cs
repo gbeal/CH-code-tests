@@ -22,7 +22,7 @@ namespace MarsRover.Test
 
             var areSame = intendedLocation == rover1.CurrentLocation;
 
-            Assert.True(rover1.CurrentLocation == intendedLocation);
+            Assert.Equal(rover1.CurrentLocation, intendedLocation);
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace MarsRover.Test
             var rover2 = new Rover(grid, new Location { X = 3, Y = 3, CurrentDirection = OrdinalDirection.East });
             rover2.AcceptCommand("MMRMMRMRRM");
 
-            Assert.True(rover2.CurrentLocation == intendedLocation);
+            Assert.Equal(rover2.CurrentLocation, intendedLocation);
         }
     }
 }

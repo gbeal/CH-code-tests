@@ -91,9 +91,9 @@ namespace SalesTax.Test
             var receipt = FormattedReceiptService.Print(order);
             _output.WriteLine(receipt);
 
-            Assert.True(order.GrandTotal == expectedGrandTotal);
-            Assert.True(order.TaxTotal == expectedTaxTotal);
-            Assert.True(receipt == expectedReceipt.ToString());
+            Assert.Equal(order.GrandTotal, expectedGrandTotal);
+            Assert.Equal(order.TaxTotal, expectedTaxTotal);
+            Assert.Equal(receipt, expectedReceipt.ToString());
 
         }
 
@@ -147,9 +147,9 @@ namespace SalesTax.Test
             var receipt = FormattedReceiptService.Print(order);
             _output.WriteLine(receipt);
 
-            Assert.True(order.GrandTotal == expectedGrandTotal);
-            Assert.True(order.TaxTotal == expectedTaxTotal);
-            Assert.True(receipt == expectedReceipt.ToString());
+            Assert.Equal(order.GrandTotal, expectedGrandTotal);
+            Assert.Equal(order.TaxTotal, expectedTaxTotal);
+            Assert.Equal(receipt, expectedReceipt.ToString());
         }
 
 
@@ -238,9 +238,9 @@ namespace SalesTax.Test
             var receipt = FormattedReceiptService.Print(order);
             _output.WriteLine(receipt);
 
-            Assert.True(order.GrandTotal == expectedGrandTotal);
-            Assert.True(order.TaxTotal == expectedTaxTotal);
-            Assert.True(receipt == expectedReceipt.ToString());
+            Assert.Equal(order.GrandTotal, expectedGrandTotal);
+            Assert.Equal(order.TaxTotal, expectedTaxTotal);
+            Assert.Equal(receipt, expectedReceipt.ToString());
         }
 
     }
