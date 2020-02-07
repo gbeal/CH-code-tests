@@ -7,7 +7,7 @@ namespace SalesTax.Console
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Sorry, I ran out of time!");
         }
     }
 }

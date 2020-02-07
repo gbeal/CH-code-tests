@@ -2,14 +2,13 @@ namespace SalesTax.Code
 {
     public class TaxRate
     {
-        readonly double _rate;
-        public double Rate => _rate;
+        public double Rate { get; }
 
         private TaxRate()
         { }
         public TaxRate(double rate)
         {
-            _rate = rate;
+            Rate = rate;
         }
     }
 }
