@@ -129,20 +129,20 @@ namespace MarsRover.Console
             return true;
         }
 
-        public OrdinalDirection GetOrdinalFromString(string direction)
+        public CardinalDirection GetOrdinalFromString(string direction)
         {
             switch (direction.ToUpper())
             {
                 case "N":
-                    return OrdinalDirection.North;
+                    return CardinalDirection.North;
                 case "E":
-                    return OrdinalDirection.East;
+                    return CardinalDirection.East;
                 case "S":
-                    return OrdinalDirection.South;
+                    return CardinalDirection.South;
                 case "W":
-                    return OrdinalDirection.West;
+                    return CardinalDirection.West;
             }
-            return OrdinalDirection.North;
+            return CardinalDirection.North;
         }
 
         public void CreateRover()
