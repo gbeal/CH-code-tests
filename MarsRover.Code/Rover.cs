@@ -17,7 +17,7 @@ namespace MarsRover.Code
             _currentGrid = grid;
         }
 
-        public Rover(Grid grid, int start_x, int start_y, OrdinalDirection start_direction)
+        public Rover(Grid grid, int start_x, int start_y, CardinalDirection start_direction)
         {
             _currentGrid = grid;
             _currentLocation = new Location { CurrentDirection = start_direction, X = start_x, Y = start_y };
@@ -48,16 +48,16 @@ namespace MarsRover.Code
             Location newLocation = _currentLocation;
             switch (_currentLocation.CurrentDirection)
             {
-                case OrdinalDirection.North:
+                case CardinalDirection.North:
                     newLocation = MoveNorth();
                     break;
-                case OrdinalDirection.South:
+                case CardinalDirection.South:
                     newLocation = MoveSouth();
                     break;
-                case OrdinalDirection.East:
+                case CardinalDirection.East:
                     newLocation = MoveEast();
                     break;
-                case OrdinalDirection.West:
+                case CardinalDirection.West:
                     newLocation = MoveWest();
                     break;
             }
@@ -77,44 +77,44 @@ namespace MarsRover.Code
             return newLocation;
         }
 
-        private OrdinalDirection GetNewDirection(RelativeDirection direction)
+        private CardinalDirection GetNewDirection(RelativeDirection direction)
         {
             if (direction == RelativeDirection.Left)
             {
-                if (_currentLocation.CurrentDirection == OrdinalDirection.East)
+                if (_currentLocation.CurrentDirection == CardinalDirection.East)
                 {
-                    return OrdinalDirection.North;
+                    return CardinalDirection.North;
                 }
-                if (_currentLocation.CurrentDirection == OrdinalDirection.North)
+                if (_currentLocation.CurrentDirection == CardinalDirection.North)
                 {
-                    return OrdinalDirection.West;
+                    return CardinalDirection.West;
                 }
-                if (CurrentLocation.CurrentDirection == OrdinalDirection.West)
+                if (CurrentLocation.CurrentDirection == CardinalDirection.West)
                 {
-                    return OrdinalDirection.South;
+                    return CardinalDirection.South;
                 }
-                if (CurrentLocation.CurrentDirection == OrdinalDirection.South)
+                if (CurrentLocation.CurrentDirection == CardinalDirection.South)
                 {
-                    return OrdinalDirection.East;
+                    return CardinalDirection.East;
                 }
             }
             else if (direction == RelativeDirection.Right)
             {
-                if (_currentLocation.CurrentDirection == OrdinalDirection.East)
+                if (_currentLocation.CurrentDirection == CardinalDirection.East)
                 {
-                    return OrdinalDirection.South;
+                    return CardinalDirection.South;
                 }
-                if (_currentLocation.CurrentDirection == OrdinalDirection.North)
+                if (_currentLocation.CurrentDirection == CardinalDirection.North)
                 {
-                    return OrdinalDirection.East;
+                    return CardinalDirection.East;
                 }
-                if (CurrentLocation.CurrentDirection == OrdinalDirection.West)
+                if (CurrentLocation.CurrentDirection == CardinalDirection.West)
                 {
-                    return OrdinalDirection.North;
+                    return CardinalDirection.North;
                 }
-                if (CurrentLocation.CurrentDirection == OrdinalDirection.South)
+                if (CurrentLocation.CurrentDirection == CardinalDirection.South)
                 {
-                    return OrdinalDirection.West;
+                    return CardinalDirection.West;
                 }
             }
 

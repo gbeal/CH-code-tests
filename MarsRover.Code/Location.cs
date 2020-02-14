@@ -8,7 +8,7 @@ namespace MarsRover.Code
     {
         public int X { get; set; }
         public int Y { get; set; }
-        public OrdinalDirection CurrentDirection { get; set; }
+        public CardinalDirection CurrentDirection { get; set; }
 
         public override bool Equals(object obj)
         {

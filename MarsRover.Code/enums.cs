@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MarsRover.Code
 {
-    public enum OrdinalDirection
+    public enum CardinalDirection
     {
         North,
         South,

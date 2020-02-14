@@ -14,10 +14,10 @@ namespace MarsRover.Test
             //set up 5x5 grid
             var grid = new Grid(5, 5);
             //our intended destination
-            var intendedLocation = new Location { X = 1, Y = 3, CurrentDirection = OrdinalDirection.North };
+            var intendedLocation = new Location { X = 1, Y = 3, CurrentDirection = CardinalDirection.North };
 
             //make it rove
-            var rover1 = new Rover(grid, new Location { X = 1, Y = 2, CurrentDirection = OrdinalDirection.North });
+            var rover1 = new Rover(grid, new Location { X = 1, Y = 2, CurrentDirection = CardinalDirection.North });
             rover1.AcceptCommand("LMLMLMLMM");
 
             var areSame = intendedLocation == rover1.CurrentLocation;
@@ -30,9 +30,9 @@ namespace MarsRover.Test
         {
             //set up 5x5 grid
             var grid = new Grid(5, 5);
-            var intendedLocation = new Location { X = 5, Y = 1, CurrentDirection = OrdinalDirection.East };
+            var intendedLocation = new Location { X = 5, Y = 1, CurrentDirection = CardinalDirection.East };
 
-            var rover2 = new Rover(grid, new Location { X = 3, Y = 3, CurrentDirection = OrdinalDirection.East });
+            var rover2 = new Rover(grid, new Location { X = 3, Y = 3, CurrentDirection = CardinalDirection.East });
             rover2.AcceptCommand("MMRMMRMRRM");
 
             Assert.Equal(rover2.CurrentLocation, intendedLocation);
